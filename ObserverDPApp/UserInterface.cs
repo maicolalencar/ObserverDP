@@ -4,14 +4,11 @@ using System.Text;
 
 namespace ObserverDPApp
 {
-    public class Logger : IObserver
+    public class UserInterface : IObserver
     {
-        
         public void Update(ISubject sender)
         {
-            Console.WriteLine($"Writing down {sender.Data.ToUpper()}");
+            Console.WriteLine($"Hey user, look at {sender.Data.ToUpper()}");
         }
-
-        
     }
 }

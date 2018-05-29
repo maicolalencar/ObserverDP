@@ -9,8 +9,9 @@ namespace ObserverDPApp
             Doer doer = new Doer();
 
             doer.Attach(new Logger());
+            doer.Attach(new UserInterface());
 
-            doer.DoSomething();
+            doer.DoSomething("my data");
             
             Console.WriteLine("fim");
             Console.ReadKey();

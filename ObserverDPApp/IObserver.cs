@@ -6,6 +6,6 @@ namespace ObserverDPApp
 {
     public interface IObserver
     {
-        void Update();
+        void Update(ISubject sender);
     }
 }

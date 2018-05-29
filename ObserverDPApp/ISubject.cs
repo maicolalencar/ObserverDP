@@ -6,8 +6,10 @@ namespace ObserverDPApp
 {
     public interface ISubject
     {
+        string Data { get; set; }
+
         void Attach(IObserver observer);
         void Dettach(IObserver observer);
-        void Notify();
+        void Notify(ISubject sender);
     }
 }

@@ -8,10 +8,13 @@ namespace ObserverDPApp
     {
         IList<IObserver> ObsList = new List<IObserver>();
 
-        public void DoSomething()
+        public string Data { get; set; }
+
+        public void DoSomething(string data)
         {
-            Console.WriteLine("Doing Something");
-            this.Notify();
+            this.Data = data;
+            //Console.WriteLine($"Doing Something with {data}");
+            this.Notify(this);
         }
 
         public void Attach(IObserver obs)
@@ -24,11 +27,11 @@ namespace ObserverDPApp
             ObsList.Remove(obs);
         }
 
-        public void Notify()
+        public void Notify(ISubject sender)
         {
             foreach(var itemObs in ObsList)
             {
-                itemObs.Update();
+                itemObs.Update(sender);
             }
         }
     }
